@@ -1,0 +1,1 @@
+{'active_cases': 0, 'cured_cases': 0, 'deaths': 0, 'migrated_cases': 0}

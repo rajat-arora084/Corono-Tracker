@@ -1,0 +1,5 @@
+06/April/2020 00:43:25 ::  {'active_cases': 3219, 'cured_cases': 274, 'deaths': 83, 'migrated_cases': 1}
+06/April/2020 09:51:16 ::  {'active_cases': 3666, 'cured_cases': 291, 'deaths': 109, 'migrated_cases': 1}
+06/April/2020 09:51:16 ::  Data Updated in Current Cases txt
+06/April/2020 10:06:48 ::  {'active_cases': 3666, 'cured_cases': 291, 'deaths': 109, 'migrated_cases': 1}
+06/April/2020 10:21:49 ::  {'active_cases': 3666, 'cured_cases': 291, 'deaths': 109, 'migrated_cases': 1}
