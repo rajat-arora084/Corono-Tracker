@@ -5,9 +5,10 @@ from parse_current_cases import ParseCurrentCases
 from log_file import LogFile
 
 
-# Utility Function to find the Live cases & provide the infor via desktop notification.
+# Utility Function to find the Live cases & provide the inform via desktop notification.
 def main():
 
+    result = dict()
     try:
         corona_cases_parser = ParseCovidCases()
         corona_cases = corona_cases_parser.main() or dict()
@@ -18,8 +19,6 @@ def main():
 
         log_file = LogFile()
         log_file.write(corona_cases)
-
-        desktop_notifier = DesktopNotification()
 
         data_updated = False
 
@@ -35,17 +34,36 @@ def main():
                 message = 'Please manually update the corona cases.\nOtherwise you will get repeated updates.'
                 log_file.write(message)
                 print(message)
-            desktop_notifier.show_notification(corona_cases)
+            result = 1, corona_cases
         else:
-            print('Same data')
+            result = 0, corona_cases
     except Exception as err:
         print('Some error occured while fetching the data. Pls check your Internet connection. \n{}'.format(err.message))
+    finally:
+        return result
 
 
 def run():
+
+    current_run_results, show_message = list(), False
+    desktop_notifier = DesktopNotification()
     while 1:
-        main()
+        result, corona_cases = main()
+        if not result:
+            print('Same data')
+            current_run_results.append(0)
+            if len(current_run_results) == 3:
+                current_run_results = list()
+                show_message = True
+        else:
+            show_message = True
+            current_run_results = list()
+        # print(show_message, result, current_run_results)
+        if show_message:
+            desktop_notifier.show_notification(corona_cases)
+
         time.sleep(300)
+        show_message = False
 
 
 if __name__ == '__main__':
