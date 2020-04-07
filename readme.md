@@ -1,3 +1,6 @@
+#####Python Version 3+
+
+
 Run the run_main.bat file.
 It will fetch the Covid-19 cases from MoHFW website every 15 minutes & show a desktop notifcation if there is a change in tally.
 
@@ -15,6 +18,10 @@ if __name__ == '__main__':
     main()
 
 It will directly execute the main function. You can schedule the task for every 10 minutes or so.
+
+
+###### Use requirments.txt to install the required Python modules. 
+#Command:  pip install -r requirements.txt
 
 
 Thanks,
